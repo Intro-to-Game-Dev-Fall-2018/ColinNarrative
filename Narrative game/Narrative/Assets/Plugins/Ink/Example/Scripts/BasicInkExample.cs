@@ -2,11 +2,13 @@
 using UnityEngine.UI;
 using System.Collections;
 using Ink.Runtime;
+using TMPro;
+using Debug = System.Diagnostics.Debug;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour {
 	
-	void Awake () {
+	void Start () {
 		// Remove the default message
 		RemoveChildren();
 		StartStory();
@@ -17,7 +19,14 @@ public class BasicInkExample : MonoBehaviour {
 		story = new Story (inkJSONAsset.text);
 		RefreshView();
 	}
-	
+
+	IEnumerator StoryContinue()
+	{
+		yield return new WaitForSeconds(2f);
+		RefreshView();
+	}
+
+
 	// This is the main function called every time the story changes. It does a few things:
 	// Destroys all the old content and choices.
 	// Continues over all the lines of text, then displays all the choices. If there are no choices, the story is finished!
@@ -43,6 +52,7 @@ public class BasicInkExample : MonoBehaviour {
 				// Tell the button what to do when we press it
 				button.onClick.AddListener (delegate {
 					OnClickChoiceButton (choice);
+					StartCoroutine(StoryContinue());
 				});
 			}
 		}
@@ -58,12 +68,13 @@ public class BasicInkExample : MonoBehaviour {
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton (Choice choice) {
 		story.ChooseChoiceIndex (choice.index);
+		
 		RefreshView();
 	}
 
 	// Creates a button showing the choice text
 	void CreateContentView (string text) {
-		Text storyText = Instantiate (textPrefab) as Text;
+		TextMeshProUGUI storyText = Instantiate (textPrefab) as TextMeshProUGUI;
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
 	}
@@ -75,11 +86,11 @@ public class BasicInkExample : MonoBehaviour {
 		choice.transform.SetParent (canvas.transform, false);
 		
 		// Gets the text from the button prefab
-		Text choiceText = choice.GetComponentInChildren<Text> ();
+		TextMeshProUGUI choiceText = choice.GetComponentInChildren<TextMeshProUGUI> ();
 		choiceText.text = text;
 
 		// Make the button expand to fit the text
-		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
+		VerticalLayoutGroup layoutGroup = choice.GetComponent <VerticalLayoutGroup> ();
 		layoutGroup.childForceExpandHeight = false;
 
 		return choice;
@@ -102,7 +113,7 @@ public class BasicInkExample : MonoBehaviour {
 
 	// UI Prefabs
 	[SerializeField]
-	private Text textPrefab;
+	private TextMeshProUGUI textPrefab;
 	[SerializeField]
 	private Button buttonPrefab;
 }
