@@ -168,7 +168,7 @@ namespace Ink.Runtime
 
             int formatFromFile = (int)versionObj;
             if (formatFromFile > inkVersionCurrent) {
-                throw new System.Exception ("Version of ink used to build story was newer than the current verison of the engine");
+//                throw new System.Exception ("Version of ink used to build story was newer than the current verison of the engine");
             } else if (formatFromFile < inkVersionMinimumCompatible) {
                 throw new System.Exception ("Version of ink used to build story is too old to be loaded by this verison of the engine");
             } else if (formatFromFile != inkVersionCurrent) {

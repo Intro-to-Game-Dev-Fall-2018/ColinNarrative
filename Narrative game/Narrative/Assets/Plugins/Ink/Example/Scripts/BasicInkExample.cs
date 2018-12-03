@@ -22,7 +22,7 @@ public class BasicInkExample : MonoBehaviour {
 
 	IEnumerator StoryContinue()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(3f);
 		RefreshView();
 	}
 
@@ -42,6 +42,7 @@ public class BasicInkExample : MonoBehaviour {
 			text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
+			//StartCoroutine(StoryContinue());
 		}
 
 		// Display all the choices, if there are any!
@@ -52,7 +53,7 @@ public class BasicInkExample : MonoBehaviour {
 				// Tell the button what to do when we press it
 				button.onClick.AddListener (delegate {
 					OnClickChoiceButton (choice);
-					StartCoroutine(StoryContinue());
+					//StartCoroutine(StoryContinue());
 				});
 			}
 		}
@@ -90,7 +91,7 @@ public class BasicInkExample : MonoBehaviour {
 		choiceText.text = text;
 
 		// Make the button expand to fit the text
-		VerticalLayoutGroup layoutGroup = choice.GetComponent <VerticalLayoutGroup> ();
+	    HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
 		layoutGroup.childForceExpandHeight = false;
 
 		return choice;
