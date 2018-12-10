@@ -6,13 +6,15 @@ using TMPro;
 using Debug = System.Diagnostics.Debug;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
-public class BasicInkExample : MonoBehaviour {
-	
-	void Start () {
+public class BasicInkExample : MonoBehaviour
+{
+	void Start()
+	{
 		// Remove the default message
 		RemoveChildren();
 		StartStory();
 	}
+
 
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory () {
@@ -46,7 +48,8 @@ public class BasicInkExample : MonoBehaviour {
 		}
 
 		// Display all the choices, if there are any!
-		if(story.currentChoices.Count > 0) {
+		if((story.currentChoices.Count > 0)) //(GameObject.Find("GameObject").GetComponent<Typewritertext>().DoneTyping = true))
+                                         {
 			for (int i = 0; i < story.currentChoices.Count; i++) {
 				Choice choice = story.currentChoices [i];
 				Button button = CreateChoiceView (choice.text.Trim ());
@@ -108,6 +111,8 @@ public class BasicInkExample : MonoBehaviour {
 	[SerializeField]
 	private TextAsset inkJSONAsset;
 	private Story story;
+	private bool DoneTyping;
+	public GameObject gameogj;
 
 	[SerializeField]
 	private Canvas canvas;
@@ -115,6 +120,7 @@ public class BasicInkExample : MonoBehaviour {
 	// UI Prefabs
 	[SerializeField]
 	private TextMeshProUGUI textPrefab;
+
 	[SerializeField]
 	private Button buttonPrefab;
 }

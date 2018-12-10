@@ -73,7 +73,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 54fbacd41e194ce42af8a2046df9ae10, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4e257ccd8c66f504eb563b8ec5ee74d1, type: 2}
   m_sharedMaterial: {fileID: 21269682159360374, guid: 54fbacd41e194ce42af8a2046df9ae10,
     type: 2}
   m_fontSharedMaterials: []
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 1
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -177,6 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313df881febf7ef4e8d0193d3a3bc11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoneTyping: 0
+  buttonPrefab: {fileID: 114454723978373954, guid: e809b991447a04949bf8eb26d684e7a6,
+    type: 2}
 --- !u!222 &222274684106661976
 CanvasRenderer:
   m_ObjectHideFlags: 1

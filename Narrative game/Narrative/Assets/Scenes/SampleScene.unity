@@ -352,8 +352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 459.5, y: -205.20634}
-  m_SizeDelta: {x: 919, y: 410.4127}
+  m_AnchoredPosition: {x: 480, y: -205.42372}
+  m_SizeDelta: {x: 960, y: 410.84744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775805208
 MonoBehaviour:
@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 939637113}
   - component: {fileID: 939637114}
   - component: {fileID: 939637115}
+  - component: {fileID: 939637116}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -447,7 +448,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4d4ee21f2838035448dbac037f8d9492, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d9356c640b7d49846aa89f7445b1ee51, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -533,6 +534,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &939637116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 939637112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313df881febf7ef4e8d0193d3a3bc11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoneTyping: 0
+  buttonCanPress: 0
+  buttonPrefab: {fileID: 114454723978373954, guid: e809b991447a04949bf8eb26d684e7a6,
+    type: 2}
 --- !u!1 &1969997762
 GameObject:
   m_ObjectHideFlags: 0

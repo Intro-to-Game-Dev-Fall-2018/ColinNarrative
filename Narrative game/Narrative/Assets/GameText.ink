@@ -1,6 +1,6 @@
 VAR money = 25
-VAR dice = false
-VAR chalk = false
+VAR Dice = false
+VAR Chalk = false
 VAR Rope = false
 VAR RopeCost = 6
 VAR DiceCost = 4
@@ -19,7 +19,8 @@ Further to the right of the young boy, a girl dressed like a ballerina stands ne
 Kimmy and Dana appoach the girl and boy...
 
 
-Dana: Hey Anthony. -> Anthony2
+Dana: Hey Anthony.
+-> Anthony2
 ==Anthony2
 Anthony: Hi Dana. It’s so weird seeing you outside of school, haha.
 Amber: I’m Amber!
@@ -93,12 +94,9 @@ Dean: Hah! That’s a long ways off for me. But maybe someday… anyways, what c
 
 Dana And Kimmy browse the stores inventory.
 They have {money} cents.
-Rope costs 6 cents
-dice cost 4 cents
-chalk costs 6 cents
-* buy Rope -> rope
-*buy dice -> dice
-*buy chalk -> chalk
+* buy Rope for 6 cents -> rope
+*buy dice for 4 cents-> dice
+*buy chalk for 6 cents-> chalk
 == rope
 { RopeCost < money:
 ~ money = money - RopeCost
@@ -106,6 +104,26 @@ chalk costs 6 cents
 -> purchase
 - else:
 You can't afford this.
++[Keep shopping]
+-> store2
+}
+== dice
+{ DiceCost < money:
+~ money = money - DiceCost
+~ Dice = true
+-> purchase
+- else:
+you can't afford this.
++[keep shopping]
+-> store2
+}
+== chalk
+{ chalkCost < money:
+~money = money - chalkCost
+~Chalk = true
+-> purchase
+-else:
+you can't afford this.
 +[Keep shopping]
 -> store2
 }
