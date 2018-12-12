@@ -1,17 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using Ink.Runtime;
 using TMPro;
 using Debug = System.Diagnostics.Debug;
+using System.Collections.Generic;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour
 {
-	void Start()
+	public List<GameObject> _panelList;
+	
+	private	void Start()
 	{
 		// Remove the default message
 		RemoveChildren();
+		_panelList = new List<GameObject>();
 		StartStory();
 	}
 
@@ -48,8 +53,7 @@ public class BasicInkExample : MonoBehaviour
 		}
 
 		// Display all the choices, if there are any!
-		if((story.currentChoices.Count > 0)) //(GameObject.Find("GameObject").GetComponent<Typewritertext>().DoneTyping = true))
-                                         {
+		if((story.currentChoices.Count > 0)){
 			for (int i = 0; i < story.currentChoices.Count; i++) {
 				Choice choice = story.currentChoices [i];
 				Button button = CreateChoiceView (choice.text.Trim ());
@@ -81,6 +85,8 @@ public class BasicInkExample : MonoBehaviour
 		TextMeshProUGUI storyText = Instantiate (textPrefab) as TextMeshProUGUI;
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
+		_panelList.Add(textPrefab.gameObject);
+		UnityEngine.Debug.Log(_panelList);
 	}
 
 	// Creates a button showing the choice text
@@ -108,14 +114,33 @@ public class BasicInkExample : MonoBehaviour
 		}
 	}
 
+	private void FixedUpdate()
+	{
+		foreach (GameObject panel in _panelList)
+		{
+			if (panel.GetComponent<Typewritertext>().DoneTyping.Equals(true))
+			{
+				buttonPrefab.interactable = true;
+				UnityEngine.Debug.Log("interactable");
+			}
+			else
+			{
+				buttonPrefab.interactable = false;
+				UnityEngine.Debug.Log("Not interactable");
+			}
+			
+		}
+
+	}
+
 	[SerializeField]
 	private TextAsset inkJSONAsset;
 	private Story story;
-	private bool DoneTyping;
 	public GameObject gameogj;
 
 	[SerializeField]
 	private Canvas canvas;
+	public  Canvas buttonCanvas;
 
 	// UI Prefabs
 	[SerializeField]

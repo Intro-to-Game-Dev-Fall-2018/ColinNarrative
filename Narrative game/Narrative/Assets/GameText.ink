@@ -11,8 +11,7 @@ VAR chalkCost = 6
 
 -> BEGIN
 == BEGIN
-Dana and Kimmy walked from Kimmy's house downtown. As they approached Frames and Glass, a store downtown, they saw a young boy around Kimmy's age reading a comic.
-Further to the right of the young boy, a girl dressed like a ballerina stands near an older boy dressed in green with an ascot.
+Dana and Kimmy walked from Kimmy's house downtown. As they approached Frames and Glass, a store downtown, they saw a young boy around Kimmy's age reading a comic. Further to the right of the young boy, a girl dressed like a ballerina stands near an older boy dressed in green with an ascot.
 + [Talk to Boy and Girl] ->Anthony1
 +[Go back Home] -> Kimmys_House
 ==Anthony1

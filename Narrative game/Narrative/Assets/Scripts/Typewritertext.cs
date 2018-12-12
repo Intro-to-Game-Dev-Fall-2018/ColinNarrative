@@ -9,7 +9,8 @@ using Debug = System.Diagnostics.Debug;
 public class Typewritertext : MonoBehaviour
 {
 	private TextMeshProUGUI _textMeshProUgui;
-	public bool DoneTyping = false;
+	public bool DoneTyping;
+	private BasicInkExample _inkExample;
 	[SerializeField]
 	public Button buttonPrefab;
 
@@ -20,9 +21,11 @@ public class Typewritertext : MonoBehaviour
 	private void Start()
 	{
 		_textMeshProUgui = GetComponent<TextMeshProUGUI>();
-		buttonPrefab.interactable = false;
+		_inkExample = GetComponent<BasicInkExample>();
+		//buttonPrefab.interactable = false;
 		DoneTyping = false;
 		StartCoroutine(Typewrit());
+		
 	}
 
 	//IEnumerator Redact()
@@ -33,22 +36,15 @@ public class Typewritertext : MonoBehaviour
 		int i = 0;
 		while(i < _textMeshProUgui.text.Length)
 		{
-			DoneTyping = false;
+			buttonPrefab.interactable = false;
 			_textMeshProUgui.maxVisibleCharacters = i++;
-			yield return new WaitForSeconds(.11f);
+			yield return new WaitForSeconds(.1f);
 		}
 
 		_textMeshProUgui.maxVisibleCharacters = _textMeshProUgui.text.Length;
 		
 		DoneTyping = true;
-		buttonPrefab.interactable = true;
 	}
 
-	private void Update()
-	{
-		if (DoneTyping == true)
-		{
-			buttonPrefab.interactable = true;
-		}
-	}
+
 }

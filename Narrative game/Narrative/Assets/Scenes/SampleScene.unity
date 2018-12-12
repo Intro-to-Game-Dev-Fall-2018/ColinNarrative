@@ -352,8 +352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -205.42372}
-  m_SizeDelta: {x: 960, y: 410.84744}
+  m_AnchoredPosition: {x: 5, y: -5}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775805208
 MonoBehaviour:
@@ -401,7 +401,6 @@ GameObject:
   - component: {fileID: 939637113}
   - component: {fileID: 939637114}
   - component: {fileID: 939637115}
-  - component: {fileID: 939637116}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -433,8 +432,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panelList: []
   inkJSONAsset: {fileID: 4900000, guid: 376633b1a3244544db6b44b4ac6bb486, type: 3}
+  gameogj: {fileID: 0}
   canvas: {fileID: 1969997764}
+  buttonCanvas: {fileID: 0}
   textPrefab: {fileID: 114588009547882178, guid: a7cc8185dfa6216459621571be3a4e20,
     type: 2}
   buttonPrefab: {fileID: 114454723978373954, guid: e809b991447a04949bf8eb26d684e7a6,
@@ -534,21 +536,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &939637116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 939637112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 313df881febf7ef4e8d0193d3a3bc11b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DoneTyping: 0
-  buttonCanPress: 0
-  buttonPrefab: {fileID: 114454723978373954, guid: e809b991447a04949bf8eb26d684e7a6,
-    type: 2}
 --- !u!1 &1969997762
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,9 +794,9 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 1
 --- !u!114 &1969997771
 MonoBehaviour:
