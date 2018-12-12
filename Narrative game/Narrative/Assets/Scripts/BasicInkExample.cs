@@ -11,6 +11,8 @@ using System.Collections.Generic;
 public class BasicInkExample : MonoBehaviour
 {
 	public List<GameObject> _panelList;
+	public AudioClip typesound;
+	private AudioSource audio;
 	
 	private	void Start()
 	{
@@ -25,6 +27,7 @@ public class BasicInkExample : MonoBehaviour
 	void StartStory () {
 		story = new Story (inkJSONAsset.text);
 		RefreshView();
+		audio = GetComponent<AudioSource>();
 	}
 
 	IEnumerator StoryContinue()
@@ -60,6 +63,7 @@ public class BasicInkExample : MonoBehaviour
 				// Tell the button what to do when we press it
 				button.onClick.AddListener (delegate {
 					OnClickChoiceButton (choice);
+
 					//StartCoroutine(StoryContinue());
 				});
 			}
@@ -76,6 +80,9 @@ public class BasicInkExample : MonoBehaviour
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton (Choice choice) {
 		story.ChooseChoiceIndex (choice.index);
+		audio.clip = typesound;
+		audio.PlayOneShot(typesound);
+
 		
 		RefreshView();
 	}
@@ -118,8 +125,10 @@ public class BasicInkExample : MonoBehaviour
 	{
 		foreach (GameObject panel in _panelList)
 		{
+//			GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Strikethrough;
 			if (panel.GetComponent<Typewritertext>().DoneTyping.Equals(true))
 			{
+				UnityEngine.Debug.Log("Is done typing");
 				buttonPrefab.interactable = true;
 				UnityEngine.Debug.Log("interactable");
 			}
@@ -128,15 +137,16 @@ public class BasicInkExample : MonoBehaviour
 				buttonPrefab.interactable = false;
 				UnityEngine.Debug.Log("Not interactable");
 			}
-			
 		}
 
 	}
+
 
 	[SerializeField]
 	private TextAsset inkJSONAsset;
 	private Story story;
 	public GameObject gameogj;
+	public Typewritertext typescript;
 
 	[SerializeField]
 	private Canvas canvas;

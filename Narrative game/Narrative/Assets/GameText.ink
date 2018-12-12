@@ -38,12 +38,12 @@ Dana: Uhhhh… what? What’s the gossip?
 Amber: Nevermind! Hi Kimmy. I remember seeing you walk to school last year. Isn’t it a bit far to walk? You should ride a bike, at least.
 Kimmy: Oh… I don’t know.
 Anthony: Are you two headed somewhere? You should hang out with Amber and I.
-+[Voice opinion] -> Dana3
++[Respond] -> Dana3
 ==Dana3
 Dana: Well, we’d like to play a game!
 Anthony: We’d been playing games with Harold earlier… but maybe we could try something new? Amber’s kinda picky though--fair warning.
 Amber: Am not!
-+[reveal] ->Dana4
++[Reveal] ->Dana4
 == Dana4
 
 Dana: Oh no! Im sorry...I thought I had some stuff to play games with in my bag...but it looks like i've ran out.
@@ -66,11 +66,11 @@ Dean: Hey, Kid.
 Dana: Hi, Dean. This is Kimmy. I’m babysitting her now.
 Dean: Well lookit that, aren’t you all grown up. You gettin’ paid?
 Kimmy: My mom pays Dana a quarter a day.
-+[Word vomit] -> Dana6
++[Distract] -> Dana6
 ==Dana6
 Dana: That’s right! I’m here to buy some things… I mean, I haven’t gotten paid yet. This is my first day. But I have some money saved up!
 Dean: Hah, I wish I had that kinda discipline. I blew my budget on fabric last week.
-+[relate to the Homie]->Dana7
++[Keep going]->Dana7
 ==Dana7
 Dana: I need to save up money. For college, you know! My mom would get so mad if I didn’t plan ahead.
 Dean: Hah! Your mom’s got the right idea. I wish I’d saved up for college.
@@ -92,6 +92,7 @@ Dean: Hah! That’s a long ways off for me. But maybe someday… anyways, what c
 == store2
 
 Dana And Kimmy browse the stores inventory.
+Seduction has worked, all prices have been discounted.
 They have {money} cents.
 * buy Rope for 6 cents -> rope
 *buy dice for 4 cents-> dice
